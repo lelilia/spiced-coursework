@@ -1,0 +1,3 @@
+[submodule "course_content/2_Project/2_2_Version_Control_with_git/course_content/2_Project/2_2_Version_Control_with_git/stocastic_sage_test"]
+	path = course_content/2_Project/2_2_Version_Control_with_git/course_content/2_Project/2_2_Version_Control_with_git/stocastic_sage_test
+	url = https://github.com/lelilia/stocacstic_sage_test.git

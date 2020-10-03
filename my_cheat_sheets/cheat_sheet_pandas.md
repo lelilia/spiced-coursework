@@ -25,7 +25,7 @@ command | description
 `df.to_numpy()`| creates a numpy array 
 `df.columns`|list with column names
 `df.index`|list with row names 
-`df.set_index(<new_name>)`|changes the heading of the index column 
+`df.index.name = 'new_name'`|renames the heading of the index column 
 
 ### Reading and Writing DataFrames
 - `pd.read_csv('<file_path/file.csv>')`

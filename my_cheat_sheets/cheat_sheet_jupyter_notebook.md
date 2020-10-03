@@ -12,3 +12,4 @@ b | insert cell below
 m | convert to markdown
 y | convert to code
 shift + m | merge cells
+o | toggles output of selected cell

@@ -49,3 +49,16 @@ command | description
 `df.loc[df.col.str.contains('a')]`| 
 `df[col].str.lower()`| apply string function
 `df[col] = x`| assign to existing or new column
+
+
+# MatPlotLib
+
+### import 
+```python 
+import matplotlib.pyplot as plt
+```
+### save in file 
+```python
+df.hist()
+plt.savefig('filename.png')
+```

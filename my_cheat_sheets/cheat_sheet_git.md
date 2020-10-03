@@ -10,6 +10,6 @@ command | description
 `git push origin main`| uploads commits to the online repo
 `git log`| shows history on current branch
 `git branch <branch>`| creates new branch
-`git checkout -b <branch> | creats new branch and switches to it 
+`git checkout -b` <branch> | creats new branch and switches to it 
 `git checkout main`| switches to branch main
 `git branch`| shows a list of all branches

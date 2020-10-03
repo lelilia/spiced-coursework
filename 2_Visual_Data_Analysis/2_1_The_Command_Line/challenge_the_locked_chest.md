@@ -1,3 +1,4 @@
+## The Locked Chest
 
 1. Create a new directory secret_chamber/
 ```bash

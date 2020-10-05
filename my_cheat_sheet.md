@@ -4,7 +4,7 @@
 - [jupyter notebooks](#jupyter)
 - [pandas](#pandas)
 - [matplot](#matplot)
-
+- [seaborn](#seaborn)
 
 # <a name = 'bash'></a>bash commands
 
@@ -93,6 +93,10 @@ command | description
 - `df.to_excel(df, '<file_path/file.csv>')`
 - `df.to_json(df, '<file_path/file.csv>')`
 
+#### cleaning the read data
+`df.columns = df.columns.asytpe(int)            # makes integer out of the column names`
+
+
 ### Selecting Rows and Columns
 
 command | description
@@ -110,6 +114,37 @@ command | description
 `df[col] = x`| assign to existing or new column
 
 
+### math operations on pandas Series (single columns)
+```python
+df.col.mean()               # calculates arithmetic mean of column
+df.col.median()
+df.col.val()                # calculates the variance of a column                 
+df.col.max()
+df.col.min()
+df.col.std()
+df.col.value_counts()       # create a relative frequency for a column
+#df.col.count()
+df.col.quantile(.25)
+df.describe()               # calculates various descriptive statistics for each column
+df.col1.corr(col2)          # calculates correlation between two columns
+df.mode()
+```
+
+
+pandas.crosstab()	calculates a (relative) contingency/cross table for two columns
+
+### plot forms
+
+command |description
+:--- | :---
+df.plot() | line plot of each column
+df.plot.bar() | one bar for each column
+df.plot.scatter() | single scatterplot
+df.hist() | histogram for each column
+df.boxplot() | draws a boxplot for each column
+pd.plotting.scatter_matrix() | draws a scatterplot matrix
+
+
 # <a name = 'matplot'></a>MatPlotLib
 
 ### import 
@@ -119,5 +154,80 @@ import matplotlib.pyplot as plt
 ### save in file 
 ```python
 df.hist()
-plt.savefig('filename.png')
+plt.savefig('filename.png' [, dpi=value])
+```
+
+function | description
+:--- | :---
+plt.figure() |	creates an empty plot
+plt.plot(x, y)|	creates a line or scatter plot
+plt.bar(x, y)	|creates a bar plot
+plt.pie(x)	|creates a pie chart
+plt.axis((xmin, xmax, ymin, ymax))|	sets the x/y boundaries
+plt.title('text')|	sets the title ==> it is possible to add latex in titles via r"$<latex>$"
+plt.xlabel('text')|	sets the x-axis label
+plt.ylabel('text')|	sets the y-axis label
+plt.xticks(rotation = -45)   |     rotates the ticks for the x axis
+plt.grid() | shows a grid 
+plt.legend() | customizes the legend 
+
+
+### plot arguments
+```python
+color = 'green'
+alpha = 0.75                    # sets the solidness of the plot
+figsize = (4,5)
+orient = 'h'
+marker = 'o'
+linestyle = 'dashed'
+linewidth = 2
+markersize = 2
+```
+#### histograms
+```python 
+bins = 25               # number of bins 
+histtype = 'bar' 
+facecolor = 'green'
+```
+
+### legend
+```python
+plt.legend(loc = 'lower left'
+```
+
+# <a name = 'seaborn'></a>Seaborn 
+```python 
+import seaborn as sns
+sns.boxplot(data = <data>)
+
+```
+### plot types
+- sns.displot()  
+*only for 0.11.0 and higher! might need to update seaborn*
+- sns.boxplot()
+- sns.countplot()
+- sns.kdeplot()  
+*kernel density estimation*
+- sns.heatmap()
+- sns.pairplot()
+
+### plot arguments
+```python
+orient = 'h'            # orientation horizontal. by default vertical 
+hue = '<column>'
+col = '<column>'        # separats by column in different plots next to each other
+multiple = 'stack'      # stacks the values on top of each other (good when the culminative total is important)
+multiple = 'dodge'      # makes the bars smaller and next to each other
+stat = 'density'        # normalizing
+common_norm = False     # gives each subset its own normaization 
+kind = 'kde'            # kernel density estimation
+rug = True              # gives a small distribution on the side 
+```
+
+### pairplot
+```python 
+g = sns.PairGrid(penguins)
+g.map_upper(sns.histplot)
+g.map_lower(sns.kdeplot, fill = True)
+g.map_diag(sns.histplot, kde = True)
 ```
